@@ -1,0 +1,7 @@
+[package]
+name = "gabriel-reus-helloworld"
+version = "0.0.1"
+description = "Hola mundo en Rust"
+authors = ["Gabriel Reus Rodriguez <gabrielin@gmail.com>"]
+
+[dependencies]
