@@ -1,9 +1,9 @@
 FROM rust
-ARG UserName=gabriel
-ARG UID=1000
-ARG GID=1000
+ARG UserName
+ARG UID
+ARG GID
 
-VOLUME ["/usr/src/myapp"]
+#VOLUME ["/usr/src/myapp"]
 
 WORKDIR /usr/src/myapp
 
