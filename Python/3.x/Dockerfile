@@ -1,4 +1,4 @@
-FROM node 
+FROM python:3
 ARG UserName=usuario
 ARG UserGroup=grupo
 
@@ -8,4 +8,7 @@ RUN groupadd ${UserGroup}
 RUN useradd -m -g ${UserGroup} -s /bin/bash ${UserName}
 USER  ${UserName}
 
-RUN node --version
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+RUN python --version
