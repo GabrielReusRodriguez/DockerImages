@@ -19,7 +19,7 @@ ACTUAL_FOLDER=`pwd`
 cd "${SCRIPT_FOLDER}"
 
 #docker build  --build-arg UserName="${curr_userName}" --build-arg UID="${curr_uid}" --build-arg GID="${curr_gid}" --force-rm -t golang_sdk .
-docker build  --build-arg UserName="${curr_userName}" --build-arg UserGroup=${curr_groupName} --force-rm -t golang_sdk .
+docker build  --build-arg UserName="${curr_userName}" --build-arg UserGroup="${curr_groupName}" --force-rm -t golang_sdk .
 
 #Volvemos de nuevo a donde estabamos.
 cd "${ACTUAL_FOLDER}"
