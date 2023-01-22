@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker run -it --rm  -v "$PWD":/usr/src/myapp nodejs_sdk  $@
+docker run -it --rm  -v "$PWD":/usr/src/app nodejs_sdk  $@

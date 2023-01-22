@@ -18,7 +18,7 @@ ACTUAL_FOLDER=`pwd`
 #Nos movemos  a la carpeta del script donde tenemos los requirements.txt y el Dockerfile
 cd "${SCRIPT_FOLDER}"
 
-docker build  --build-arg UserName="${curr_userName}" --build-arg UserGroup=${curr_groupName} --force-rm -t python3_sdk .
+docker build  --build-arg UserName="${curr_userName}" --build-arg UserGroup=${curr_groupName} --force-rm -t r_sdk .
 
 #Volvemos de nuevo a donde estabamos.
 cd "${ACTUAL_FOLDER}"

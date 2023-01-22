@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-curr_uid=`id -u`
-curr_gid=`id -g`
+#curr_uid=`id -u`
+#curr_gid=`id -g`
 curr_userName=`whoami`
+curr_groupName="grupo"
 
 #Determinamos la ruta del script ( independeintemente de si lo llamamos por enlace simbolico o no.)
 SOURCE=${BASH_SOURCE[0]}
@@ -17,8 +18,7 @@ ACTUAL_FOLDER=`pwd`
 #Nos movemos  a la carpeta del script donde tenemos los requirements.txt y el Dockerfile
 cd "${SCRIPT_FOLDER}"
 
-docker build  --build-arg UID=${curr_uid} --build-arg GID=${curr_gid} -t nodejs_sdk .
-
+docker build  --build-arg UserName="${curr_userName}" --build-arg UserGroup=${curr_groupName}  --force-rm -t nodejs_sdk  .
 
 #Volvemos de nuevo a donde estabamos.
-cd ${ACTUAL_FOLDER}
+cd "${ACTUAL_FOLDER}"

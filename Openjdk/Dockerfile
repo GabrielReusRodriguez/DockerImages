@@ -1,4 +1,4 @@
-FROM node 
+FROM openjdk
 ARG UserName=usuario
 ARG UserGroup=grupo
 
@@ -8,4 +8,4 @@ RUN groupadd ${UserGroup}
 RUN useradd -m -g ${UserGroup} -s /bin/bash ${UserName}
 USER  ${UserName}
 
-RUN node --version
+RUN java --version

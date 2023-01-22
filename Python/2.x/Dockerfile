@@ -1,14 +1,12 @@
 FROM python:2
-ARG UserName
-ARG UID
-ARG GID
+ARG UserName=usuario
+ARG UserGroup=grupo
 
 WORKDIR /usr/src/app
 
-RUN id -g ${GID} &>/dev/null || groupadd -g ${GID} ${UserName}
-RUN id -u ${UID} &>/dev/null || useradd useradd -m -u ${UID} -g ${GID} -s /bin/bash ${UserName}
-
-USER ${UID}
+RUN groupadd ${UserGroup}
+RUN useradd -m -g ${UserGroup} -s /bin/bash ${UserName}
+USER  ${UserName}
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
