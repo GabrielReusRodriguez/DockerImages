@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-#curr_uid=`id -u`
-#curr_gid=`id -g`
+curr_uid=`id -u`
+curr_gid=`id -g`
 curr_userName=`whoami`
-curr_groupName="grupo"
+curr_groupName="java"
 
 #Determinamos la ruta del script ( independeintemente de si lo llamamos por enlace simbolico o no.)
 SOURCE=${BASH_SOURCE[0]}
@@ -18,7 +18,7 @@ ACTUAL_FOLDER=`pwd`
 #Nos movemos  a la carpeta del script donde tenemos los requirements.txt y el Dockerfile
 cd "${SCRIPT_FOLDER}"
 
-docker build  --build-arg UserName="${curr_userName}" --build-arg UserGroup="${curr_groupName}"  --force-rm -t java_sdk .
+docker build  --build-arg UserId="${curr_uid}" --build-arg GroupId="${curr_gid}"   --build-arg UserName="${curr_userName}" --build-arg GroupName="${curr_groupName}"  --force-rm -t java_sdk  .
 
 #Volvemos de nuevo a donde estabamos.
 cd "${ACTUAL_FOLDER}"

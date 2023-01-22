@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-docker run -it --rm -u root -v "$PWD":/usr/src/app reactjs_sdk  $@
+curr_uid=`id -u`
+
+docker run -it --rm  --user ${curr_uid} -v "$PWD":/usr/src/app reactjs_sdk  $@

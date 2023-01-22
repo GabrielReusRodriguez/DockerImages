@@ -1,11 +1,15 @@
 FROM perl
 ARG UserName=usuario
-ARG UserGroup=grupo
+ARG GroupName=grupo
+ARG UserId
+ARG GroupId
+
+#Se crea el grupo y el usuario SOLO en caso que el id de grupo y usuario NO existan en el docker.
+RUN id -g ${GroupId} &>/dev/null ||  groupadd -g ${GroupId} ${GroupName}
+RUN id -u ${UserId} &>/dev/null || useradd ${UserName} -u ${UserId} -m -g ${GroupId} -s /bin/bash 
 
 WORKDIR /usr/src/app
 
-RUN groupadd ${UserGroup}
-RUN useradd -m -g ${UserGroup} -s /bin/bash ${UserName}
 USER  ${UserName}
 
 RUN perl --version
