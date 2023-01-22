@@ -6,4 +6,4 @@ Para ejecutarlo, se ha de ejecutar los scripts de la carpeta bin.
 
 
 En caso de querer tunear la imagen Docker , se puede acceder a cada carpeta y modificarla.
-.
+..
