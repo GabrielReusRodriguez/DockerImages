@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-docker run -it --rm  -v "$PWD":/usr/src/app rust_sdk  $@
+curr_uid=`id -u`
 
-
-
+docker run -it --rm  --user ${curr_uid} -v "$PWD":/usr/src/app rust_sdk  $@

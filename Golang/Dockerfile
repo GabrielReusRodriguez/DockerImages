@@ -1,17 +1,15 @@
 FROM golang 
 ARG UserName=usuario
-ARG UserGroup=grupo
+ARG GroupName=grupo
+ARG UserId
+ARG GroupId
+
+#Se crea el grupo y el usuario SOLO en caso que el id de grupo y usuario NO existan en el docker.
+RUN id -g ${GroupId} &>/dev/null ||  groupadd -g ${GroupId} ${GroupName}
+RUN id -u ${UserId} &>/dev/null || useradd ${UserName} -u ${UserId} -m -g ${GroupId} -s /bin/bash 
 
 WORKDIR /usr/src/app
 
-#RUN id -g ${GID} &>/dev/null || groupadd -g ${GID} ${UserName}
-#RUN id -u ${UID} &>/dev/null || useradd -m -u ${UID} -g ${GID} -s /bin/bash ${UserName}
-
-#RUN id -g ${UserName} &>/dev/null || groupadd ${UserName}
-#RUN id -u ${UserName} &>/dev/null || useradd -m -g ${UserName} -s /bin/bash ${UserName}
-
-RUN groupadd ${UserGroup}
-RUN useradd -m -g ${UserGroup} -s /bin/bash ${UserName}
 USER  ${UserName}
 
 RUN go version
