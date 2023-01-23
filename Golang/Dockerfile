@@ -10,6 +10,6 @@ RUN id -u ${UserId} &>/dev/null || useradd ${UserName} -u ${UserId} -m -g ${Grou
 
 WORKDIR /usr/src/app
 
-USER  ${UserName}
+USER  ${UserId}
 
 RUN go version

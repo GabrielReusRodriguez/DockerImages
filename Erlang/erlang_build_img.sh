@@ -6,7 +6,7 @@ curr_userName=`whoami`
 curr_groupName="erlang"
 
 
-#Determinamos la ruta del script ( independeintemente de si lo llamamos por enlace simbolico o no.)
+Determinamos la ruta del script ( independeintemente de si lo llamamos por enlace simbolico o no.)
 SOURCE=${BASH_SOURCE[0]}
 while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
   DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
@@ -16,10 +16,10 @@ done
 SCRIPT_FOLDER=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 ACTUAL_FOLDER=`pwd`
 
-#Nos movemos  a la carpeta del script donde tenemos los requirements.txt y el Dockerfile
+##Nos movemos  a la carpeta del script donde tenemos los requirements.txt y el Dockerfile
 cd "${SCRIPT_FOLDER}"
 
 docker build  --build-arg UserId="${curr_uid}" --build-arg GroupId="${curr_gid}"   --build-arg UserName="${curr_userName}" --build-arg GroupName="${curr_groupName}"  --force-rm -t erlang_sdk  .
 
-#Volvemos de nuevo a donde estabamos.
+##Volvemos de nuevo a donde estabamos.
 cd "${ACTUAL_FOLDER}"
