@@ -17,6 +17,6 @@ RUN npm install -g create-react-app
 
 WORKDIR /usr/src/app
 
-USER  ${UserName}
+USER  ${UserId}
 
 RUN create-react-app --version

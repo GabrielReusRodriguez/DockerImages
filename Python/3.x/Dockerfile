@@ -12,7 +12,7 @@ RUN id -u ${UserId} &>/dev/null || useradd ${UserName} -u ${UserId} -m -g ${Grou
 
 WORKDIR /usr/src/app
 
-USER  ${UserName}
+USER  ${UserId}
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
