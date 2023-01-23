@@ -8,14 +8,14 @@ En caso de querer tunear la imagen Docker , se puede acceder a cada carpeta y mo
 
 
 A fecha de hoy 24/01/2023 se incluyen las siguientes tecnologías:
-    ErLang
-    GoLang
-    NodeJs
-    OpenJDK
-    Perl
-    Python 2.x y 3.x
-    R
-    ReactJs
-    Rust
+    * ErLang
+    * GoLang
+    * NodeJs
+    * OpenJDK
+    * Perl
+    * Python 2.x y 3.x
+    * R
+    * ReactJs
+    * Rust
 
 Espero poder ampliarla y mejorar los scripts, toda sugerencia y colaboración es bienvenida.
